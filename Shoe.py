@@ -1,39 +1,37 @@
 import pygame
-import neat
 import time
 import os
 import random
 from Constant import * 
 
-class Bird:
-    IMG = BIRD_IMG
+class Shoe:
+    IMG = SHOE_IMG
     MAX_ROTATION = 25
     ROT_VEL = 10
     ACCELERATION = 3
+    velocity = 0
     def __init__(self):
         self.x = 230
         self.y = 360
         self.rota = 0
-        self.tick_count = 0
-        self.vel = 0
+        self.time = 0
         self.height = self.y
-        self.img_count = 0
         self.img = self.IMG
 
     def jump(self):
         # Echelle par du corner en haut à gauche donc il nous faut une vel négative
-        self.vel = -10
-        self.tick_count = 0
+        self.time = 0
+        Shoe.velocity = -10
 
         # Position ou on débute notre saut pour analyser la descente plus tard 
         self.height = self.y
 
     def move(self):
-        self.tick_count +=1
+        self.time +=1
 
         # Lois de newton : https://www.youtube.com/watch?v=v_linpA7uXo&ab_channel=CDcodes
         # Nouvelle position = ancienne position + velocité * temps + 1/2 * acceleration * temps^2
-        d = self.vel * self.tick_count + 0.5 * self.ACCELERATION * self.tick_count**2
+        d = Shoe.velocity * self.time + 0.5 * Shoe.ACCELERATION * self.time**2
 
         # On set une distance entre 2 frames différentes car sinon c'est incontrolable
         # On doit passer par là car on veut une gravité relativemment faible pour le jeu 
