@@ -16,6 +16,13 @@ def insertScore(player_name, score,jump_count,time,difficulty):
             (score, player_name, date_str,jump_count,time,difficulty))
     con.commit()
 
+def returnRecordsDate(date):
+    c.execute("Select * from records")
+    score = c.fetchall()
+    for row in score:
+        x = row[3][0:10]
+        if x == date:
+            print(row)
 
 # c.execute("DELETE FROM records")
 
@@ -24,5 +31,5 @@ def insertScore(player_name, score,jump_count,time,difficulty):
 # c.execute("insert into records(score,player_name,date_hour,jump_count,time,difficulty) values(66,'margot', '05/12/2022 12:45')")
 # c.execute("insert into records(score,player_name,date_hour,jump_count,time,difficulty) values(67,'robin', '04/07/2022 11:30')")
 # c.execute("Select * from records")
+returnRecordsDate("2022-12-31")
 con.commit()
-print(c.fetchall())

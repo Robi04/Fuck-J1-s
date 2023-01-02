@@ -26,7 +26,7 @@ def draw_window(window,shoe,pipes,base,score):
 
 def start_the_game():
     print(DIFFICULTY[0][0])
-    diff_distance = [['Easy',800],['Medium',700],['Hard',550]]
+    diff_distance = [['Easy',800],['Medium',700],['Hard',520]]
     for i in diff_distance:
         if i[0]==DIFFICULTY[0][0]:
             val_dif = i[1]
