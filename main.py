@@ -18,7 +18,7 @@ def draw_window(window,shoe,piles,base,score):
     window.blit(BG_IMG, (0,0))
     for pile in piles:
         pile.draw(window)
-    text = STAT_FONT.render("Score: " + str(score),1,(255,255,100))
+    text = FONT1.render("Score: " + str(score),1,(255,255,100))
     window.blit(text,(WINDOW_WIDTH - 10 - text.get_width(),10))
     base.draw(window)
     shoe.draw(window)
@@ -88,26 +88,26 @@ def seeHighScore():
 
     #BUTTON BACK TO MENU
     pygame.draw.rect(surface, (0,0,0), (20, 720, 220, 40), 2)
-    text_back_menu = SCORE_FONT.render("Go back to menu",1,(0,0,0))
+    text_back_menu = FONT2.render("Go back to menu",1,(0,0,0))
     surface.blit(text_back_menu,(30,730))
 
     #TITLE HIGHSCORE
-    text_title_highscore = STAT_FONT.render("HIGHSCORES",1,(0,0,0))
+    text_title_highscore = FONT1.render("HIGHSCORES",1,(0,0,0))
     surface.blit(text_title_highscore,(60,20))
 
     #BUTTON Difficulty 1
     pygame.draw.rect(surface, (0,0,0), (20, 100, 100, 40), 2)
-    text_easy = SCORE_FONT.render("EASY",1,(200,0,200))
+    text_easy = FONT2.render("EASY",1,(200,0,200))
     surface.blit(text_easy,(40,110))
 
     #BUTTON Difficulty 2
     pygame.draw.rect(surface, (0,0,0), (190, 100, 130, 40), 2)
-    text_medium = SCORE_FONT.render("MEDIUM",1,(0,0,0))
+    text_medium = FONT2.render("MEDIUM",1,(0,0,0))
     surface.blit(text_medium,(200,110))
 
     #BUTTON Difficulty 3
     pygame.draw.rect(surface, (0,0,0), (400, 100, 100, 40), 2)
-    text_hard = SCORE_FONT.render("HARD",1,(0,0,0))
+    text_hard = FONT2.render("HARD",1,(0,0,0))
     surface.blit(text_hard,(420,110))
 
 
@@ -118,7 +118,7 @@ def seeHighScore():
 
     for row in scores:
         print(row[0])
-        text = SCORE_FONT.render("Position " + str(i+1) + " :  " + row[2] + " with " + str(row[1]) + " points",1,(0,0,0))
+        text = FONT2.render("Position " + str(i+1) + " :  " + row[2] + " with " + str(row[1]) + " points",1,(0,0,0))
         surface.blit(text,(60,200 + 50*i))
         i+=1
         print("Name : " + row[2] + " Score : " + str(row[1]))
@@ -141,28 +141,28 @@ def seeHighScore():
 
                 #BUTTON BACK TO MENU
                 pygame.draw.rect(surface, (0,0,0), (20, 720, 220, 40), 2)
-                text_back_menu = SCORE_FONT.render("Go back to menu",1,(0,0,0))
+                text_back_menu = FONT2.render("Go back to menu",1,(0,0,0))
                 surface.blit(text_back_menu,(30,730))
 
                 #TITLE HIGHSCORE
-                text_title_highscore = STAT_FONT.render("HIGHSCORES",1,(0,0,0))
+                text_title_highscore = FONT1.render("HIGHSCORES",1,(0,0,0))
                 surface.blit(text_title_highscore,(60,20))
                 i=0
                 scores = getScoresDesc("Easy")
                 for row in scores:
-                    text = SCORE_FONT.render("Position " + str(i+1) + " :  " + row[2] + " with " + str(row[1]) + " points",1,(0,0,0))
+                    text = FONT2.render("Position " + str(i+1) + " :  " + row[2] + " with " + str(row[1]) + " points",1,(0,0,0))
                     surface.blit(text,(60,200 + 50*i))
                     i+=1
                 pygame.draw.rect(surface, (0,0,0), (20, 100, 100, 40), 2)
-                text_easy = SCORE_FONT.render("EASY",1,(200,0,200))
+                text_easy = FONT2.render("EASY",1,(200,0,200))
                 surface.blit(text_easy,(40,110))
                 
                 pygame.draw.rect(surface, (0,0,0), (190, 100, 130, 40), 2)
-                text_medium = SCORE_FONT.render("MEDIUM",1,(0,0,0))
+                text_medium = FONT2.render("MEDIUM",1,(0,0,0))
                 surface.blit(text_medium,(200,110))
                 
                 pygame.draw.rect(surface, (0,0,0), (400, 100, 100, 40), 2)
-                text_hard = SCORE_FONT.render("HARD",1,(0,0,0))
+                text_hard = FONT2.render("HARD",1,(0,0,0))
                 surface.blit(text_hard,(420,110))
                 pygame.display.update()
 
@@ -176,28 +176,28 @@ def seeHighScore():
 
                 #BUTTON BACK TO MENU
                 pygame.draw.rect(surface, (0,0,0), (20, 720, 220, 40), 2)
-                text_back_menu = SCORE_FONT.render("Go back to menu",1,(0,0,0))
+                text_back_menu = FONT2.render("Go back to menu",1,(0,0,0))
                 surface.blit(text_back_menu,(30,730))
 
                 #TITLE HIGHSCORE
-                text_title_highscore = STAT_FONT.render("HIGHSCORES",1,(0,0,0))
+                text_title_highscore = FONT1.render("HIGHSCORES",1,(0,0,0))
                 surface.blit(text_title_highscore,(60,20))
                 scores = getScoresDesc("Medium")
                 for row in scores:
-                    text = SCORE_FONT.render("Position " + str(i+1) + " :  " + row[2] + " with " + str(row[1]) + " points",1,(0,0,0))
+                    text = FONT2.render("Position " + str(i+1) + " :  " + row[2] + " with " + str(row[1]) + " points",1,(0,0,0))
                     surface.blit(text,(60,200 + 50*i))
                     i+=1
 
                 pygame.draw.rect(surface, (0,0,0), (20, 100, 100, 40), 2)
-                text_easy = SCORE_FONT.render("EASY",1,(0,0,0))
+                text_easy = FONT2.render("EASY",1,(0,0,0))
                 surface.blit(text_easy,(40,110))
 
                 pygame.draw.rect(surface, (0,0,0), (190, 100, 130, 40), 2)        
-                text_medium = SCORE_FONT.render("MEDIUM",1,(200,0,200))
+                text_medium = FONT2.render("MEDIUM",1,(200,0,200))
                 surface.blit(text_medium,(200,110))
                 
                 pygame.draw.rect(surface, (0,0,0), (400, 100, 100, 40), 2)
-                text_hard = SCORE_FONT.render("HARD",1,(0,0,0))
+                text_hard = FONT2.render("HARD",1,(0,0,0))
                 surface.blit(text_hard,(420,110))
                 pygame.display.update()
 
@@ -210,28 +210,28 @@ def seeHighScore():
 
                 #BUTTON BACK TO MENU
                 pygame.draw.rect(surface, (0,0,0), (20, 720, 220, 40), 2)
-                text_back_menu = SCORE_FONT.render("Go back to menu",1,(0,0,0))
+                text_back_menu = FONT2.render("Go back to menu",1,(0,0,0))
                 surface.blit(text_back_menu,(30,730))
 
                 #TITLE HIGHSCORE
-                text_title_highscore = STAT_FONT.render("HIGHSCORES",1,(0,0,0))
+                text_title_highscore = FONT1.render("HIGHSCORES",1,(0,0,0))
                 surface.blit(text_title_highscore,(60,20))
                 scores = getScoresDesc("Hard")
                 for row in scores:
-                    text = SCORE_FONT.render("Position " + str(i+1) + " :  " + row[2] + " with " + str(row[1]) + " points",1,(0,0,0))
+                    text = FONT2.render("Position " + str(i+1) + " :  " + row[2] + " with " + str(row[1]) + " points",1,(0,0,0))
                     surface.blit(text,(60,200 + 50*i))
                     i+=1
 
                 pygame.draw.rect(surface, (0,0,0), (20, 100, 100, 40), 2)
-                text_easy = SCORE_FONT.render("EASY",1,(0,0,0))
+                text_easy = FONT2.render("EASY",1,(0,0,0))
                 surface.blit(text_easy,(40,110))
                 
                 pygame.draw.rect(surface, (0,0,0), (190, 100, 130, 40), 2)                        
-                text_medium = SCORE_FONT.render("MEDIUM",1,(0,0,0))
+                text_medium = FONT2.render("MEDIUM",1,(0,0,0))
                 surface.blit(text_medium,(200,110))
 
                 pygame.draw.rect(surface, (0,0,0), (400, 100, 100, 40), 2)
-                text_hard = SCORE_FONT.render("HARD",1,(200,0,200))
+                text_hard = FONT2.render("HARD",1,(200,0,200))
                 surface.blit(text_hard,(420,110))
                 pygame.display.update()        
 

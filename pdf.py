@@ -11,5 +11,5 @@ def form(path):
     my_canvas.line(120, 700, 580, 700)
     my_canvas.save()
 
-if __name__ == '__main__':
-    form('canvas_form.pdf')
+# if __name__ == '__main__':
+#     form('canvas_form.pdf')
