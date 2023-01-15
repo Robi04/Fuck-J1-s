@@ -4,7 +4,7 @@ import os
 import random
 from Constant import * 
 
-class Pipe:
+class Pile:
     GAP = 200
     VEL = 5
 
@@ -15,30 +15,30 @@ class Pipe:
 
         self.top = 0
         self.bottom = 0
-        # Pipe de base dans mon image va du bas vers le haut
-        self.PIPE_TOP = pygame.transform.flip(PIPE_IMG, False, True)
-        self.PIPE_BOTTOM = PIPE_IMG
+        # PILE de base dans mon image va du bas vers le haut
+        self.PILE_TOP = pygame.transform.flip(PILE_IMG, False, True)
+        self.PILE_BOTTOM = PILE_IMG
 
         self.passed = False
         self.set_height()
 
     def set_height(self):
         self.height = random.randrange(50,450)
-        self.top = self.height - self.PIPE_TOP.get_height()
+        self.top = self.height - self.PILE_TOP.get_height()
         self.bottom = self.height + self.GAP
 
     def move(self):
         self.x -= self.VEL
 
     def draw(self,win):
-        win.blit(self.PIPE_TOP, (self.x,self.top))
-        win.blit(self.PIPE_BOTTOM, (self.x,self.bottom))
+        win.blit(self.PILE_TOP, (self.x,self.top))
+        win.blit(self.PILE_BOTTOM, (self.x,self.bottom))
 
     # On créer un masque pour checké les pixel à l'intérieur de nos hitbox pour que les collisions soit on point
     def collide(self,bird):
         bird_mask = bird.mask()
-        top_mask = pygame.mask.from_surface(self.PIPE_TOP)
-        bottom_mask = pygame.mask.from_surface(self.PIPE_BOTTOM)
+        top_mask = pygame.mask.from_surface(self.PILE_TOP)
+        bottom_mask = pygame.mask.from_surface(self.PILE_BOTTOM)
 
         top_offset = (self.x - bird.x,self.top - round(bird.y))
         bottom_offset = (self.x - bird.x, self.bottom - round(bird.y))

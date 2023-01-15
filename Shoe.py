@@ -9,6 +9,7 @@ class Shoe:
     MAX_ROTATION = 25
     ROT_VEL = 10
     ACCELERATION = 3
+    # 0 de base puis après puis -10 histoire que la chaussure ne saute pas dès que l'ob lance le jeu 
     velocity = 0
     def __init__(self):
         self.x = 230

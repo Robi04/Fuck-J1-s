@@ -10,15 +10,15 @@ import time
 from db import * 
 from Shoe import *
 from Base import *
-from Pipe import *
+from Pile import *
 from Constant import *
 
-def draw_window(window,shoe,pipes,base,score):
+def draw_window(window,shoe,piles,base,score):
     #draw on the window
     window.blit(BG_IMG, (0,0))
-    for pipe in pipes:
-        pipe.draw(window)
-    text = STAT_FONT.render("Score: " + str(score),1,(255,255,255))
+    for pile in piles:
+        pile.draw(window)
+    text = STAT_FONT.render("Score: " + str(score),1,(255,255,100))
     window.blit(text,(WINDOW_WIDTH - 10 - text.get_width(),10))
     base.draw(window)
     shoe.draw(window)
@@ -38,7 +38,7 @@ def start_the_game():
     clock = pygame.time.Clock()
     shoe = Shoe()
     base = Base()
-    pipes = [Pipe(val_dif)]
+    piles = [Pile(val_dif)]
     run = True
     while run:
         clock.tick(30)
@@ -50,10 +50,10 @@ def start_the_game():
                     shoe.jump()
                     jump_count += 1 
 
-        spawn_pipe = False
+        spawn_pile = False
         to_remove = []
-        for pipe in pipes:
-            if pipe.collide(shoe) or base.collide(shoe) or shoe.y < -50:
+        for pile in piles:
+            if pile.collide(shoe) or base.collide(shoe) or shoe.y < -50:
                 run = False
                 print(f"{PLAYER_NAME}, Your score is {score}")
                 print("--- %s seconds ---" % (time.time() - start_time))
@@ -61,25 +61,25 @@ def start_the_game():
                 insertScore(PLAYER_NAME,score,jump_count,time.time() - start_time,DIFFICULTY[0][0])
                 display_menu()
 
-            # Si pipe + la largeur dépasse de l'écran à gauche on rajoute un nouveau pipe à gauche de l'écran 
-            if pipe.x + pipe.PIPE_TOP.get_width() < 0 :
-                to_remove.append(pipe)            
-            if not pipe.passed and pipe.x < shoe.x:
-                pipe.passed = True
-                spawn_pipe = True
+            # Si pile + la largeur dépasse de l'écran à gauche on rajoute un nouveau pile à gauche de l'écran 
+            if pile.x + pile.PILE_TOP.get_width() < 0 :
+                to_remove.append(pile)            
+            if not pile.passed and pile.x < shoe.x:
+                pile.passed = True
+                spawn_pile = True
                 
-            pipe.move()
+            pile.move()
 
-        if spawn_pipe:
+        if spawn_pile:
             score += 1
-            pipes.append(Pipe(val_dif))
+            piles.append(Pile(val_dif))
 
         for r in to_remove:
-            pipes.remove(r)
+            piles.remove(r)
 
         shoe.move()
         base.move()
-        draw_window(window,shoe,pipes,base,score)
+        draw_window(window,shoe,piles,base,score)
 
 def seeHighScore():
     #BACKGROUND
@@ -257,7 +257,7 @@ def display_menu():
         seeHighScore()
 
     win_menu = pygame.display.set_mode((WINDOW_WIDTH,WINDOW_HEIGHT))
-    menu = pygame_menu.Menu('Robzy shoe', 550, 800,theme=pygame_menu.themes.THEME_BLUE)
+    menu = pygame_menu.Menu('FUCK J1\'S', 550, 800,theme=pygame_menu.themes.THEME_BLUE)
     test=menu.add.text_input('Name :',onchange=player_name,default=" ")
     menu.add.button('Play', startGame)
     menu.add.selector('Difficulty :', [('Hard', 1), ('Medium',2),('Easy', 3)], onchange=set_difficulty, default=1)

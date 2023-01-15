@@ -8,8 +8,8 @@ pygame.init()
 WINDOW_WIDTH = 550
 WINDOW_HEIGHT = 800
 
-SHOE_IMG = pygame.transform.scale2x(pygame.image.load("./assets/bird1.png"))
-PIPE_IMG  = pygame.image.load("./assets/pipe.png")
+SHOE_IMG = pygame.transform.scale2x(pygame.image.load("./assets/shoe.png"))
+PILE_IMG  = pygame.image.load("./assets/pile.png")
 BASE_IMG  = pygame.transform.scale2x(pygame.image.load("./assets/base.png"))
 BG_IMG  = pygame.transform.scale2x(pygame.image.load("./assets/bg.png"))
 STAT_FONT = pygame.font.SysFont("comicsans",50)
