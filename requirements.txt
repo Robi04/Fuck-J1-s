@@ -1,0 +1,7 @@
+pygame
+pygame-menu
+os
+sys
+time
+random
+sqlite

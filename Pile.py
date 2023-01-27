@@ -35,16 +35,16 @@ class Pile:
         win.blit(self.PILE_BOTTOM, (self.x,self.bottom))
 
     # On créer un masque pour checké les pixel à l'intérieur de nos hitbox pour que les collisions soit on point
-    def collide(self,bird):
-        bird_mask = bird.mask()
+    def collide(self,shoe):
+        shoe_mask = shoe.mask()
         top_mask = pygame.mask.from_surface(self.PILE_TOP)
         bottom_mask = pygame.mask.from_surface(self.PILE_BOTTOM)
 
-        top_offset = (self.x - bird.x,self.top - round(bird.y))
-        bottom_offset = (self.x - bird.x, self.bottom - round(bird.y))
+        top_offset = (self.x - shoe.x,self.top - round(shoe.y))
+        bottom_offset = (self.x - shoe.x, self.bottom - round(shoe.y))
 
-        b_point = bird_mask.overlap(bottom_mask,bottom_offset)
-        t_point = bird_mask.overlap(top_mask,top_offset)
+        b_point = shoe_mask.overlap(bottom_mask,bottom_offset)
+        t_point = shoe_mask.overlap(top_mask,top_offset)
 
         if b_point or t_point:
             return True

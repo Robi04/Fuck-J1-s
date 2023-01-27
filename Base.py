@@ -32,15 +32,15 @@ class Base:
         win.blit(self.IMG,(self.x2,self.y))
 
      # On créer un masque pour checké les pixel à l'intérieur de nos hitbox pour que les collisions soit on point
-    def collide(self,bird):
-        bird_mask = bird.mask()
+    def collide(self,shoe):
+        shoe_mask = shoe.mask()
         mask = pygame.mask.from_surface(self.IMG)
 
-        offsetx1 = (self.x1 - bird.x,self.y - round(bird.y))
-        offsetx2 = (self.x2 - bird.x,self.y - round(bird.y))
+        offsetx1 = (self.x1 - shoe.x,self.y - round(shoe.y))
+        offsetx2 = (self.x2 - shoe.x,self.y - round(shoe.y))
 
-        overlapedx1 = bird_mask.overlap(mask,offsetx1)
-        overlapedx2 = bird_mask.overlap(mask,offsetx2)
+        overlapedx1 = shoe_mask.overlap(mask,offsetx1)
+        overlapedx2 = shoe_mask.overlap(mask,offsetx2)
 
         if overlapedx1 or overlapedx2:
             return True
